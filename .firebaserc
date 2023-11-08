@@ -1,6 +1,6 @@
 {
   "targets": {
-    "shubh-angular": {
+    "fyle-angular": {
       "hosting": {
         "shubh-frontend-challenge": [
           "shubh-angular"

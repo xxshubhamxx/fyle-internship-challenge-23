@@ -21,7 +21,7 @@ jobs:
       run: npm install
 
     - name: Build
-      run: npm run build:prod
+      run: npm install -g angular/cli && ng build shubh-frontend-challenge --prod --output-path .
 
     - name: Deploy
       if: success()

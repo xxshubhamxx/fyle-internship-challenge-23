@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "shubh-angular": {
+      "hosting": {
+        "shubh-frontend-challenge": [
+          "shubh-angular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "shubh-angular"
+  }
+}

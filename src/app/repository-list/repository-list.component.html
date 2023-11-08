@@ -1,0 +1,36 @@
+<div class="flex flex-col items-center mb-6">
+  <input
+    [(ngModel)]="username"
+    placeholder="Enter GitHub Username"
+    class="p-2 border border-gray-300 rounded mb-2"
+  />
+  <button
+    (click)="searchRepositories()"
+    class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+  >
+    Search
+  </button>
+</div>
+
+<ng-container *ngIf="isLoading; else loadedData">
+  <div *ngFor="let _ of generateArray(pageSize)">
+    <app-skeleton-loader></app-skeleton-loader>
+  </div>
+</ng-container>
+
+<ng-template #loadedData class="list-disc list-inside">
+  <!-- Display your actual data here when loading is complete -->
+  <div *ngFor="let repo of repositories" class="mb-2">
+    <li>
+      <a [href]="repo.html_url" target="_blank">{{ repo.name }}<span style="padding-bottom: .2vh"> &#8599; </span></a>
+    </li>
+  </div>
+</ng-template>
+
+<mat-paginator
+  #paginator
+  [length]="totalRepositories"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[10, 15, 20]"
+  (page)="onPageChange($event)"
+></mat-paginator>
